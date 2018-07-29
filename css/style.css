@@ -101,6 +101,7 @@ input {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 .form-login input[type="button"]:focus, .form-login input[type="button"]:hover {
   background-color: #197071;
 }
@@ -112,6 +113,16 @@ input {
   margin-bottom: 2rem;
 }
 
+
+/********************************/
+/* Form link CSS */
+
+.form-field a {
+  color: white;
+  text-align: right;
+}
+
+/********************************/
 
 .hidden {
   border: 0;
