@@ -1,4 +1,6 @@
 function get_securities() {    
+    
+    var store=window.localStorage;
     console.log("insside the function()");    
     //Get the current date   
     var today = new Date();
@@ -11,12 +13,7 @@ function get_securities() {
     } 
     if(mm<10) 
     {
-        mm='0'+mm;
-    } 
-    today = mm+'-'+dd+'-'+yyyy;
-    console.log(today);
-    //Get the current time
-    var date = new Date();
+        mm='0'+mm;var date = new Date();
     var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     var curret_time = hours + ":" + minutes;
@@ -33,6 +30,11 @@ function get_securities() {
         xhttp.open("get", url, true);
         //xhttp.setRequestHeader('Content-Type','application/json');
         xhttp.send();
+    
+    } 
+    today = mm+'-'+dd+'-'+yyyy;
+    console.log(today);
+    //Get the current time
         
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -42,7 +44,14 @@ function get_securities() {
             // convert string to JSON
             //  var response = $.parseJSON(xhttp.responseText);
             var response = JSON.parse(xhttp.responseText);
+            delete response[""];
 
+            //delete keys not required in JSON Object
+            for(var k=0;k<response.length;k++)
+            {
+                delete response[k].buyCount;
+                delete response[k].sellCount;
+            }
             // EXTRACT VALUE FOR HTML HEADER. 
             var col = [];
             for (var i = 0; i < response.length; i++) {
@@ -53,6 +62,7 @@ function get_securities() {
                 }
             }
 
+           
             // var fieldOrder = [""];
 
             // CREATE DYNAMIC TABLE.
@@ -77,14 +87,19 @@ function get_securities() {
                     tabCell.innerHTML = response[i][col[j]];
                 }
 
-
                 tr.onclick = function() {
                     var row=[];
                     for(var k=0;k<7;k++)
                     {
                         row.push(tr.cells[k].innerHTML);
                     }
+                  
+                    console.log(store);
                     console.log(row);
+
+                    store.setItem("security_details",row);
+
+                    window.location="../templates/security_details.html"
                 }
                 
             }

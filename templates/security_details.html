@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Building Responsive Forms With Flexbox</title>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css/security_details.css">
+
+    <script src="../js/security_details.js" type="text/javascript">	</script>
+
+</head>
+<body>
+  <div class="container">
+  <form>
+    <ul class="flex-outer">
+      <li>
+        <label for="security_name">Security Company Name</label>
+        <input type="text" readonly id="security_name">
+      </li>
+      <li>
+        <label for="sector">Sector</label>
+        <input type="text" readonly id="sector">
+      </li>
+      <li>
+        <label for="symbol">Symbol</label>
+        <input type="text" readonly id="symbol" >
+      </li>
+      <li>
+        <label for="market_lot">Market Lot</label>
+        <input type="text" readonly id="market_lot" >
+      </li>
+      <li>
+        <label for="price_variance">Price Variance</label>
+        <input type="text" readonly id="price_variance">
+      </li>
+      <li>
+         <label for="price">Price</label>
+        <input type="text" readonly id="price">
+    </li>
+     <li>
+        <label for="isin">ISIN</label>
+        <input type="text" readonly id="isin">
+        </li>
+      <li>
+    <li>
+            <label for="bid_price">Bid Price/Offer Price</label>
+            <input type="number" id="bid_price">
+    </li>
+    <li>   
+        <label for="qty">Quantity</label>
+        <input type="number" id="qty">
+    </li>
+    <li style="display: block">  
+            <label for="direction" >Direction</label>
+            <input type="radio" id="buy" style="margin-left: 100px">BUY</input>
+            <input type="radio" id="sell" style="margin-left: 50px">SELL</input>
+    </li>
+    <li>
+        <button type="button" onclick="">Submit</button>
+      </li>
+      <script type="text/javascript">
+        set_securities();
+      </script> 
+    </ul>
+  </form>
+</div>
+</body>
+</html>
