@@ -6,8 +6,9 @@
   <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="../css/security_details.css">
-
     <script src="../js/security_details.js" type="text/javascript">	</script>
+    <script src="../js/popup.js" type="text/javascript">	</script>
+
 
 </head>
 <body>
@@ -56,9 +57,14 @@
             <input type="radio" id="buy" style="margin-left: 100px">BUY</input>
             <input type="radio" id="sell" style="margin-left: 50px">SELL</input>
     </li>
+    <li style="display: block">  
+        <label for="order_type" >Order Type</label>
+        <input type="radio" id="limit_order" style="margin-left: 100px">LIMIT</input>
+        <input type="radio" id="market_order" style="margin-left: 50px">MARKET</input>
+    </li>
     <li>
-        <button type="button" onclick="">Submit</button>
-      </li>
+        <button type="button" onclick="place_order()">Submit</button>
+    </li>
       <script type="text/javascript">
         set_securities();
       </script> 

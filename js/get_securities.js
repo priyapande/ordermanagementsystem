@@ -13,7 +13,12 @@ function get_securities() {
     } 
     if(mm<10) 
     {
-        mm='0'+mm;var date = new Date();
+        mm='0'+mm;
+    }
+    today = mm+'-'+dd+'-'+yyyy;
+    console.log(today);
+    //Get the current time
+    var date = new Date(); 
     var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     var curret_time = hours + ":" + minutes;
@@ -23,7 +28,7 @@ function get_securities() {
             time: curret_time
         };
 
-        var xhttp = new XMLHttpRequest();
+    var xhttp = new XMLHttpRequest();
     // var url = "http://192.168.43.34:7887/getAllSecurities/"+today+"/"+curret_time; 
     var url = "http://192.168.43.34:7887/getAllSecurities/29-07-2018/20:30"; 
         console.log(url);
@@ -31,11 +36,6 @@ function get_securities() {
         //xhttp.setRequestHeader('Content-Type','application/json');
         xhttp.send();
     
-    } 
-    today = mm+'-'+dd+'-'+yyyy;
-    console.log(today);
-    //Get the current time
-        
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             // Typical action to be performed when the document is ready:
@@ -99,7 +99,7 @@ function get_securities() {
 
                     store.setItem("security_details",row);
 
-                    window.location="../templates/security_details.html"
+                    window.location="../templates/order_book.html"
                 }
                 
             }

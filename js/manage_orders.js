@@ -80,21 +80,6 @@ function get_orders() {
                 }
 
 
-                // tr.onclick = function() {
-                //     var row=[];
-                //     for(var k=0;k<7;k++)
-                //     {
-                //         row.push(tr.cells[k].innerHTML);
-                //     }
-                  
-                //     console.log(store);
-                //     console.log(row);
-
-                //     store.setItem("security_details",row);
-
-                //     window.location="../templates/security_details.html"
-                // }
-                
             }
 
             // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
