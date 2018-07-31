@@ -29,7 +29,7 @@ function dashboard_load()
 
         var xhttp = new XMLHttpRequest();
         //var url = "http://192.168.43.34:7887/getTopSecuritiesByPrice/"+today+"/"+current_time;
-        var url = "http://192.168.43.34:7887/getTopSecuritiesByPrice/19-07-2018/3:3";
+        var url = "http://192.168.43.34:7887/getTopSecuritiesByCount";
 
         xhttp.open("get", url, true);
         //xhttp.setRequestHeader('Content-Type','application/json');
@@ -41,36 +41,84 @@ function dashboard_load()
 
             // convert string to JSON
             var response = JSON.parse(xhttp.responseText);
-
             console.log(response);
+            var bid_array=response[0];
+            var sell_array=response[1];
+            console.log(bid_array);
 
+              // EXTRACT VALUE FOR HTML HEADER.
+              var col = [];
+              console.log(response);
+              for (var i = 0; i < bid_array.length; i++) {
+                  for (var key in bid_array[i]) {
+                    console.log(key);
+                      if (col.indexOf(key) === -1) {
+                          col.push(key);
+                      }
+                  }
+              }
 
-        //     // CREATE DYNAMIC TABLE.
-        //     var table = document.createElement("table");
-        //     var tr = table.insertRow(-1);
-        //
-        //     // ADD JSON DATA TO THE TABLE AS ROWS.
-        //     for (var i = 0; i < response[0].length; i++) {
-        //         tr = table.insertRow(-1);
-        //
-        //         for (var j = 0; j < response.length; j++) {
-        //             var tabCell = tr.insertCell(-1);
-        //             var j1 = j + 1;
-        //             tabCell.classList.add("cell100")
-        //             tabCell.classList.add("column" + j1)
-        //             var t = response[j][i];
-        //             tabCell.innerHTML = t.price;
-        //         }
-        //
-        // }
-        // //console.log(table);
-        //
-        //     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-        //     var divContainer = document.getElementById("sData");
-        //     divContainer.innerHTML = "";
-        //     divContainer.appendChild(table);
-        //     console.log(divContainer);
-      }
+              // CREATE DYNAMIC TABLE.
+              var table = document.createElement("table");
+              var tr = table.insertRow(-1);
+  
+              // ADD JSON DATA TO THE TABLE AS ROWS.
+              for (var i = 0; i < bid_array.length; i++) {
+                  tr = table.insertRow(-1);
+  
+                  for (var j = 0; j < col.length; j++) {
+                      var tabCell = tr.insertCell(-1);
+                      var j1 = j + 1;
+                      tabCell.classList.add("cell100")
+                      tabCell.classList.add("column" + j1)
+                      tabCell.innerHTML = bid_array[i][col[j]];
+                  }
+  
+              }
+  
+              // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+              var divContainer = document.getElementById("sData");
+              divContainer.innerHTML = "";
+              divContainer.appendChild(table);
+  
+                 // EXTRACT VALUE FOR HTML HEADER.
+                 var col = [];
+                 console.log(response);
+                 for (var i = 0; i < sell_array.length; i++) {
+                     for (var key in sell_array[i]) {
+                       console.log(key);
+                         if (col.indexOf(key) === -1) {
+                             col.push(key);
+                         }
+                     }
+                 }
+   
+                 // CREATE DYNAMIC TABLE.
+                 var table = document.createElement("table");
+                 var tr = table.insertRow(-1);
+     
+                 // ADD JSON DATA TO THE TABLE AS ROWS.
+                 for (var i = 0; i < sell_array.length; i++) {
+                     tr = table.insertRow(-1);
+     
+                     for (var j = 0; j < col.length; j++) {
+                         var tabCell = tr.insertCell(-1);
+                         var j1 = j + 1;
+                         tabCell.classList.add("cell100")
+                         tabCell.classList.add("column" + j1)
+                         tabCell.innerHTML = sell_array[i][col[j]];
+                     }
+     
+                 }
+     
+                 // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+                 var divContainer = document.getElementById("sData1");
+                 divContainer.innerHTML = "";
+                 divContainer.appendChild(table);
+   
+  
+          
+        }
     };
 
 }

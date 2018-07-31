@@ -10,7 +10,7 @@
 }
 
 .sidenav-header {
-  background: url("../images/user-bg.jpg") no-repeat center center;
+  background: #283593 no-repeat center center;
   background-size: cover;
   margin-bottom: 0px;
   padding: 10px 0 0 10px;
@@ -34,4 +34,12 @@
 .sidenav-footer .row .social-icons a:hover {
   background-color: inherit;
   opacity: 1;
+}
+
+.col .s4 {
+  padding-bottom: 10px;
+}
+
+.col .s8 {
+  font-size: 25px;
 }
