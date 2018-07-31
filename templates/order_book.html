@@ -3,8 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Order Book</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Trade</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
@@ -22,7 +27,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-	<!-- <link rel="stylesheet" type="text/css" href="../vendor/perfect-scrollbar/perfect-scrollbar.css"> -->
+	<link rel="stylesheet" type="text/css" href="../vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../css/util.css">
 	<link rel="stylesheet" type="text/css" href="../css/order_book.css">
@@ -72,49 +77,43 @@
         <li class="white"><div class="divider"></div></li>
 
     </ul>
-  </div>
+
+    </div>
   </nav>
 
   <div class="limiter">
 		<div class="container-table100">
-			<h1 id="header_title"></h1>
+      <h1 id="header_title"></h1>
 			<div class="wrap-table100" >
-				<div class="table100 m-b-110">
+				<div class="table100 ver1 m-b-110 table-clickable">
 
 					<div class="table100-head">
 						<table>
 							<thead>
 								<tr class="row100 head">
-                    <th class="cell100 column1">Best Buy Price</th>
-                    <th class="cell100 column2">Best Sell Price</th>
-								</tr>
+                  <th class="cell100 column1">Best Buy Price</th>
+                  <th class="cell100 column2">Best Sell Price</th>
+                </tr>
 							</thead>
-              </table>
-              <div class="table100-body" id="sData">
+						</table>
+					</div>
 
-              </div>
-
-              <button type="button"
-               onclick="document.location.href='../templates/security_details.html';">Proceed to Trade</button>
-          
+					<div class="table100-body js-pscroll" id="sData">
 
 					</div>
-          </div>
-        </div>
-        </div>
+					</div>
+				</div>
+        <button type="button"
+            onclick="document.location.href='../templates/security_details.html';">Proceed to Trade</button>
+
       </div>
-
-
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </div>
 
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
 <script src='../js/plnzqb.js'></script>
 <script  src="../js/nav.js"></script>
-<script  src="../js/security_details.js"></script>
 
 
 <!-- <script src="vendor/jquery/jquery-3.2.1.min.js"></script> -->
@@ -124,11 +123,21 @@
 <!--===============================================================================================-->
 	<script src="../vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<!-- <script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script> -->
+	<script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
 
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
 <script type="text/javascript">
-  order_book_mgmt();
+order_book_mgmt();
 </script>
+
 
 </body>
 

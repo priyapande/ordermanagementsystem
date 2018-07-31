@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Building Responsive Forms With Flexbox</title>
+  <title>Order Form</title>
   <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="../css/security_details.css">
@@ -29,13 +29,9 @@
         <input type="text" readonly id="market_lot" >
       </li>
       <li>
-        <label for="price_variance">Price Variance</label>
-        <input type="text" readonly id="price_variance">
-      </li>
-      <li>
          <label for="price">Price</label>
         <input type="text" readonly id="price">
-    </li>
+      </li>
      <li>
         <label for="isin">ISIN</label>
         <input type="text" readonly id="isin">
@@ -51,13 +47,13 @@
     </li>
     <li style="display: block">
             <label for="direction" >Direction</label>
-            <input type="radio" id="buy" style="margin-left: 100px">BUY</input>
-            <input type="radio" id="sell" style="margin-left: 50px">SELL</input>
+            <input type="radio" id="buy" style="margin-left: 100px">  BUY</input>
+            <input type="radio" id="sell" style="margin-left: 50px">  SELL</input>
     </li>
     <li style="display: block">
         <label for="order_type" >Order Type</label>
-        <input type="radio" style="padding: 16px" id="limit_order" style="margin-left: 100px">LIMIT</input>
-        <input type="radio"  id="market_order" style="margin-left: 50px">MARKET</input>
+        <input type="radio" style="margin-left: 85px" id="limit_order" style="margin-left: 100px">   LIMIT</input>
+        <input type="radio"  id="market_order" style="margin-left: 40px">    MARKET</input>
     </li>
     <li>
         <button type="button" onclick="place_order()">Submit</button>
