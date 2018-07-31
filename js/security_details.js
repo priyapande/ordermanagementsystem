@@ -81,6 +81,13 @@ function place_order() {
         // console.log(store);
         // window.location="../templates/dashboard.html";
 
+        success_message();
+
       }
   };
+}
+
+function success_message()
+{
+    swal("Order Placed Successfully.", "Your trade order has been placed successfully", "success");
 }
