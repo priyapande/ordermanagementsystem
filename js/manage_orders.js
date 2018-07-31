@@ -44,7 +44,7 @@ function get_orders() {
             for (var i = 0; i < response.length; i++) {
                 tr = table.insertRow(-1);
 
-                for (var j = 0; j < col.length; j++)
+                for (var j = 0; j < col.length-1; j++)
                  {
                      if(j!=1)
                     {
@@ -90,3 +90,29 @@ function get_orders() {
            }
         };
 }
+
+function addRowHandlers1() {
+    var store=window.localStorage;
+    var table = document.getElementById("showData");
+    var rows = table.getElementsByTagName("tr");
+    console.log(rows);
+    var data=[];
+    for (i = 1; i < rows.length; i++) {
+      var currentRow = rows[i];
+      var createClickHandler = function(currentRow) {
+        return function() {
+          var cells = currentRow.getElementsByTagName("td");
+          for(var k=0;k<cells.length;k++){
+            var cell = cells[k];
+            var id = cell.innerHTML;
+            data.push(id);
+          //  alert("id:" + id);
+          }
+            store.setItem("order_details",data);
+            window.location="../templates/update_order.html"
+          console.log(data);
+        };
+      };
+      currentRow.onclick = createClickHandler(currentRow);
+    }
+  }

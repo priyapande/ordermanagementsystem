@@ -68,7 +68,7 @@ body {
 
 .flex-outer li input:not([type='radio']),
 .flex-outer li textarea {
-  padding: 15px;
+  padding: 10px;
   border: none;
   color: black;
 }
