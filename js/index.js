@@ -1,3 +1,10 @@
+var store=window.localStorage;
+
+function check_loggedIn() {
+  if(store.client_code)
+    window.location.href;
+}
+
 function submit_by_id() {
   var name = document.getElementById("login-username").value;
   var password = document.getElementById("login-password").value;
@@ -19,12 +26,19 @@ function submit_by_id() {
         // Typical action to be performed when the document is ready:
         var response = JSON.parse(xhttp.responseText);
         console.log(xhttp.responseText);
-        console.log(response);
-        var store=window.localStorage;
+        //console.log(response);
         store.setItem("client_code",response.code);
-        console.log(store);
-        window.location="../templates/dashboard.html";
-        
+        //console.log(store);
+        window.location='../templates/dashboard.html';
       }
   };
+}
+
+function logout() {
+  localStorage.clear();
+  var url = '../templates/login.html';
+  var l=window.history.go(-window.history.length);
+
+  window.location.href = url;
+  //  console.log(window.localStorage);
 }

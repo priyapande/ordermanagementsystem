@@ -2,22 +2,22 @@ function calculate_receivables()
 {
 
     var store=window.localStorage;
-    //var security= store.security_details.split(',');
-    console.log(store);
+    var client_code= store.client_code;
+    //console.log(store);
 
-        // var xhttp = new XMLHttpRequest();
-        // var url = "http://192.168.43.34:7887/getTopOrders/"+security[2];
-        // //console.log(url);
-        // xhttp.open("get", url, true);
-        // //xhttp.setRequestHeader('Content-Type','application/json');
-        // xhttp.send();
-        // xhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //     // Typical action to be performed when the document is ready:
-        //     console.log(xhttp.responseText);
+         var xhttp = new XMLHttpRequest();
+         var url = "http://192.168.43.34:7887/getNetPayableReceivable/"+client_code;
+         //console.log(url);
+         xhttp.open("get", url, true);
+        //xhttp.setRequestHeader('Content-Type','application/json');
+         xhttp.send();
+         xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+             // Typical action to be performed when the document is ready:
+             console.log(xhttp.responseText);
 
-        //     // convert string to JSON
-        //     var response = JSON.parse(xhttp.responseText);
+             // convert string to JSON
+             var response = JSON.parse(xhttp.responseText);
 
         //     console.log(response);
 

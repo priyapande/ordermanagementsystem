@@ -61,11 +61,11 @@ function dashboard_load()
               // CREATE DYNAMIC TABLE.
               var table = document.createElement("table");
               var tr = table.insertRow(-1);
-  
+
               // ADD JSON DATA TO THE TABLE AS ROWS.
               for (var i = 0; i < bid_array.length; i++) {
                   tr = table.insertRow(-1);
-  
+
                   for (var j = 0; j < col.length; j++) {
                       var tabCell = tr.insertCell(-1);
                       var j1 = j + 1;
@@ -73,14 +73,14 @@ function dashboard_load()
                       tabCell.classList.add("column" + j1)
                       tabCell.innerHTML = bid_array[i][col[j]];
                   }
-  
+
               }
-  
+
               // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
               var divContainer = document.getElementById("sData");
               divContainer.innerHTML = "";
               divContainer.appendChild(table);
-  
+
                  // EXTRACT VALUE FOR HTML HEADER.
                  var col = [];
                  console.log(response);
@@ -92,15 +92,15 @@ function dashboard_load()
                          }
                      }
                  }
-   
+
                  // CREATE DYNAMIC TABLE.
                  var table = document.createElement("table");
                  var tr = table.insertRow(-1);
-     
+
                  // ADD JSON DATA TO THE TABLE AS ROWS.
                  for (var i = 0; i < sell_array.length; i++) {
                      tr = table.insertRow(-1);
-     
+
                      for (var j = 0; j < col.length; j++) {
                          var tabCell = tr.insertCell(-1);
                          var j1 = j + 1;
@@ -108,16 +108,13 @@ function dashboard_load()
                          tabCell.classList.add("column" + j1)
                          tabCell.innerHTML = sell_array[i][col[j]];
                      }
-     
+
                  }
-     
+
                  // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
                  var divContainer = document.getElementById("sData1");
                  divContainer.innerHTML = "";
                  divContainer.appendChild(table);
-   
-  
-          
         }
     };
 
