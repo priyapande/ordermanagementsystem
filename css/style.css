@@ -30,8 +30,8 @@ background: linear-gradient(to top, #16222A , #3A6073); /* W3C, IE 10+/ Edge, Fi
 
 .logo{
   font-family: "museo-slab";
-  font-size:20px;
-  text-align: center;
+  font-size:25px;
+  text-align:center;
   padding: 20px 20px 0;
   margin:0;
 }
@@ -120,6 +120,7 @@ input {
 .form-field a {
   color: white;
   text-align: right;
+  padding-left: 120px;
 }
 
 /********************************/
