@@ -1,5 +1,6 @@
 var store=window.localStorage;
 var security=store.getItem("security_details");
+console.log(store);
 var sec_array=security.split(',');
 
 function set_securities()
@@ -87,7 +88,16 @@ function place_order() {
   };
 }
 
-function success_message()
-{
-    swal("Order Placed Successfully.", "Your trade order has been placed successfully", "success");
+function success_message(){
+  setTimeout(function() {
+    swal({
+      title:"Order Placed Successfully.",
+      text:"Your trade order has been placed successfully",
+      type: "success"
+    },
+    function() {
+              window.location = "../templates/manage_orders.html";
+        }
+      );
+    }, 300);
 }
