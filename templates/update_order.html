@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/update_orders.css">
     <link rel="stylesheet" href="../css/custom-confirm.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css'> -->
     <!-- <link rel="stylesheet" href="../css/success_message.css">  -->
 
@@ -50,13 +50,15 @@
         <label for="pay_rec">Payable/Receivable</label>
         <input type="text" readonly id="pay_rec">
     </li>
-    
+
     <!-- <li>
         <button type="button" onclick="place_order()">Submit</button>
     </li> -->
-    
-    <li><button>Delete Order</button></li>
-    
+    <li style="padding-left:90px;padding-top:20px">
+      <button type="button" style="display:inline" onclick="document.location.href='../templates/manage_orders.html';">Back</button>
+      <button type="button" style="display:inline" id="">Modify Order</button>
+      <button type="button" style="display:inline" id="">Delete Order</button>
+    </li>
     <!-- <script src="../js/custom-confirm.js"></script>
     <script>
         CustomConfirm('a', function (confirmed, element) {
@@ -70,19 +72,19 @@
 
         CustomConfirm('button', function (confirmed, element) {
             // if user confirms place the order
-            if (confirmed) 
+            if (confirmed)
             {
                place_order();
-            } 
+            }
             else
              {
-                
+
              }
         });
      </script> -->
       <script type="text/javascript">
         update_order();
-      </script> 
+      </script>
     </ul>
   </form>
 </div>

@@ -514,16 +514,17 @@
   }
 
   button {
-    background-color: rgb(48, 26, 66); /* Green */
+    background-color: rgb(48, 26, 66);
+    height:50px;
     border: none;
     color: white;
-    padding: 20px;
+    padding: 0 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 0px;
     cursor: pointer;
     border-radius: 8px;
-    
+
  }

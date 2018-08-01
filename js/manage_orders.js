@@ -1,14 +1,14 @@
-function get_orders() {    
-    
+function get_orders() {
+
     var store=window.localStorage;
     var client_code=store.getItem("client_code");
-   //console.log(client_code);    
-    
+   //console.log(client_code);
+
     var xhttp = new XMLHttpRequest();
-    var url = "http://192.168.43.34:7887/getOrders/"+client_code; 
+    var url = "http://192.168.43.34:7887/getOrders/"+client_code;
         //console.log(url);
     xhttp.open("get", url, true);
-    xhttp.send();    
+    xhttp.send();
     xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             // Typical action to be performed when the document is ready:
@@ -18,7 +18,7 @@ function get_orders() {
             var response = JSON.parse(xhttp.responseText);
 
 
-            // EXTRACT VALUE FOR HTML HEADER. 
+            // EXTRACT VALUE FOR HTML HEADER.
             var col = [];
             for (var i = 0; i < response.length; i++) {
                 for (var key in response[i]) {
@@ -32,7 +32,7 @@ function get_orders() {
 
             // CREATE DYNAMIC TABLE.
             var table = document.createElement("table");
-            var tr = table.insertRow(-1); 
+            var tr = table.insertRow(-1);
 
             // for (var i = 0; i < col.length; i++) {
             //     var th = document.createElement("th");      // TABLE HEADER.
@@ -44,7 +44,7 @@ function get_orders() {
             for (var i = 0; i < response.length; i++) {
                 tr = table.insertRow(-1);
 
-                for (var j = 0; j < col.length-1; j++)
+                for (var j = 0; j < col.length-2; j++)
                  {
                      if(j!=1)
                     {
@@ -54,7 +54,7 @@ function get_orders() {
                         tabCell.classList.add("column" + j1)
                         if(j==10)
                         {
-                           
+
                             var value=response[i][col[j]];
                             if(value==0)
                             {
@@ -75,7 +75,7 @@ function get_orders() {
                         {
                             tabCell.innerHTML = response[i][col[j]];
                         }
-                    
+
                      }
                 }
 
