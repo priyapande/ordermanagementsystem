@@ -3,18 +3,18 @@ function calculate_receivables()
 
     var store=window.localStorage;
     var client_code= store.getItem("client_code");
-    console.log(store);
+    //console.log(store);
 
         var xhttp = new XMLHttpRequest();
         var url = "http://192.168.43.34:7887/getReportByClient/"+client_code;
-        console.log(url);
+        //console.log(url);
         xhttp.open("get", url, true);
         xhttp.setRequestHeader('Content-Type','application/json');
         xhttp.send();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             // Typical action to be performed when the document is ready:
-            console.log(xhttp.responseText);
+            //console.log(xhttp.responseText);
 
             // convert string to JSON
             var response = JSON.parse(xhttp.responseText);
@@ -22,17 +22,17 @@ function calculate_receivables()
 
                // EXTRACT VALUE FOR HTML HEADER.
                var col = [];
-               console.log(response);
+               //console.log(response);
                for (var i = 0; i < response.length; i++) {
                    for (var key in response[i]) {
-                     console.log(key);
+                     //console.log(key);
                        if (col.indexOf(key) === -1) {
                            col.push(key);
                        }
                    }
                }
-               console.log(col);
-   
+               //console.log(col);
+
      // CREATE DYNAMIC TABLE.
      var table = document.createElement("table");
      var tr = table.insertRow(-1);
@@ -57,7 +57,13 @@ function calculate_receivables()
      var divContainer = document.getElementById("sData");
      divContainer.innerHTML = "";
      divContainer.appendChild(table);
+     var sum =0;
+     for (var i = 0; i < response.length; i++) {
+              sum += response[i].balance;
+         }
+         document.getElementById("net_amount").innerHTML=sum;
+
    }
-        };
+   };
 
 }

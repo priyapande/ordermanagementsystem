@@ -55,7 +55,7 @@
             <div class="col s4" style="padding-bottom: 10px">
                 <img src="https://gravatar.com/avatar/961997eb7fd5c22b3e12fb3c8ca14e11?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
             </div>
-            <div class="col s8" style="font-size: 25px">SAMI</div>
+            <div class="col s8" style="font-size: 25px">S001</div>
           </div>
         </li>
         <li class="white"><a href="dashboard.html" class="waves-effect waves-blue"><i class="material-icons">dashboard</i>Dashboard</a></li>
@@ -79,7 +79,7 @@
 								<tr class="row100 head">
                   <th class="cell100 column1">Security Name</th>
                   <th class="cell100 column2">Quantity Traded</th>
-                  <th class="cell100 column3">Order Matching Price</th>
+                  <th class="cell100 column3">Net Receivables/Payables(+/-)</th>
                 </tr>
 							</thead>
 						</table>
@@ -89,10 +89,11 @@
 				</div>
       </div>
     </div>
-    <div>
-        <img src="../images/money_icon.png" style="padding-left: 500px; height: 100px;" >
-      </div>
   </div>
+  <div class="flex-container">
+      <img src="../images/money_icon.png" style="height: 60px;" >
+      <p id="net_amount" style="display:inline;font-size:1.5rem"></p>
+</div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>

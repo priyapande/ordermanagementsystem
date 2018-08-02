@@ -11,7 +11,7 @@
 
   @font-face {
     font-family: Lato-Bold;
-    src: url('../fonts/Lato/Lato-Bold.ttf');   
+    src: url('../fonts/Lato/Lato-Bold.ttf');
   }
 
   /*//////////////////////////////////////////////////////////////////
@@ -174,14 +174,23 @@
   }
 
   .column1 {
-    width: 50%;
+    width: 25%;
     padding-left: 40px;
   }
 
   .column2 {
-    width: 50%;
+    width: 25%;
     align-content: center;
   }
+  .column2 {
+    width: 25%;
+    align-content: center;
+  }
+  .column2 {
+    width: 25%;
+    align-content: center;
+  }
+
 
 
   .table100-head th {

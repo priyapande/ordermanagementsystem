@@ -3,7 +3,7 @@ function order_book_mgmt()
 
     var store=window.localStorage;
     var security= store.security_details.split(',');
-    document.getElementById("header_title").innerHTML="Current top prices for " + security[0];
+    document.getElementById("header_title").innerHTML= security[0];
     console.log(store);
 
         var xhttp = new XMLHttpRequest();
@@ -30,15 +30,30 @@ function order_book_mgmt()
             // ADD JSON DATA TO THE TABLE AS ROWS.
             for (var i = 0; i < response[0].length; i++) {
                 tr = table.insertRow(-1);
-
-                for (var j = 0; j < response.length; j++) {
+                    j=0;
                     var tabCell = tr.insertCell(-1);
                     var j1 = j + 1;
-                    tabCell.classList.add("cell100")
-                    tabCell.classList.add("column" + j1)
-                    var t = response[j][i];
-                    tabCell.innerHTML = t.price;
-                }
+                    tabCell.classList.add("cell100");
+                    tabCell.classList.add("column" + j1);
+                    tabCell.innerHTML = response[0][i].quantity;
+                    j++;
+                    var tabCell = tr.insertCell(-1);
+                    var j1 = j + 1;
+                    tabCell.classList.add("cell100");
+                    tabCell.classList.add("column" + j1);
+                    tabCell.innerHTML = response[0][i].price;
+                    j++;
+                    var tabCell = tr.insertCell(-1);
+                    var j1 = j + 1;
+                    tabCell.classList.add("cell100");
+                    tabCell.classList.add("column" + j1);
+                    tabCell.innerHTML = response[1][i].price;
+                    j++;
+                    var tabCell = tr.insertCell(-1);
+                    var j1 = j + 1;
+                    tabCell.classList.add("cell100");
+                    tabCell.classList.add("column" + j1);
+                    tabCell.innerHTML = response[1][i].quantity;
 
         }
         //console.log(table);

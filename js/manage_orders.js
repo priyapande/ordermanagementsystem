@@ -58,15 +58,15 @@ function get_orders() {
                             var value=response[i][col[j]];
                             if(value==0)
                             {
-                                tabCell.innerHTML = "Unprocessed";
+                                tabCell.innerHTML = "Pending";
                             }
                             else if(value==1)
                             {
-                                tabCell.innerHTML = "In Progress";
+                                tabCell.innerHTML = "Partially Executed";
                             }
                             else if(value==2)
                             {
-                                tabCell.innerHTML = "Completed";
+                                tabCell.innerHTML = "Completely Executed";
                             }
                             else
                             tabCell.innerHTML = "Cancelled";
@@ -91,28 +91,51 @@ function get_orders() {
         };
 }
 
+// function addRowHandlers1() {
+//     var store=window.localStorage;
+//     var table = document.getElementById("showData");
+//     var rows = table.getElementsByTagName("tr");
+//     console.log(rows);
+//     for (i = 1; i < rows.length; i++) {
+//       var currentRow = rows[i];
+//       var createClickHandler = function(currentRow) {
+//         return function() {
+//           var cell = currentRow.getElementsByTagName("td")[0];
+//           console.log(cell);
+//           store.setItem("order_details",);
+//             window.location="../templates/update_order.html"
+//         };
+//       };
+//       currentRow.onclick = createClickHandler(currentRow);
+//     }
+//   }
+
 function addRowHandlers1() {
-    var store=window.localStorage;
-    var table = document.getElementById("showData");
-    var rows = table.getElementsByTagName("tr");
-    console.log(rows);
-    var data=[];
-    for (i = 1; i < rows.length; i++) {
-      var currentRow = rows[i];
-      var createClickHandler = function(currentRow) {
-        return function() {
-          var cells = currentRow.getElementsByTagName("td");
-          for(var k=0;k<cells.length;k++){
-            var cell = cells[k];
-            var id = cell.innerHTML;
-            data.push(id);
-          //  alert("id:" + id);
-          }
-            store.setItem("order_details",data);
-            window.location="../templates/update_order.html"
-          console.log(data);
-        };
+  var store=window.localStorage;
+  var table = document.getElementById("showData");
+  var rows = table.getElementsByTagName("tr");
+  //console.log(rows);
+  var data=[];
+  for (i = 1; i < rows.length; i++) {
+    var currentRow = rows[i];
+    var createClickHandler = function(currentRow) {
+      return function() {
+        var cells = currentRow.getElementsByTagName("td");
+        for(var k=0;k<cells.length;k++){
+          var cell = cells[k];
+          var id = cell.innerHTML;
+          data.push(id);
+        //  alert("id:" + id);
+        }
+        ;
+        store.setItem("order_details",data);
+        //console.log(data);
+        if(data[9]==="Pending")
+          window.location="../templates/update_order.html";
+        else
+          window.alert("Order In Process can't Modify or Delete");
       };
-      currentRow.onclick = createClickHandler(currentRow);
-    }
+    };
+    currentRow.onclick = createClickHandler(currentRow);
   }
+}
